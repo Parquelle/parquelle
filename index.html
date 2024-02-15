@@ -1,36 +1,69 @@
 <html>
     <head>
-        <title>Parquelle Homepage</title>
+        <title>Parquelle's Homepage</title>
         <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Parquelle/parquelle/main/favicon.ico">
-        <style>
-            body {
-                background-color: #171717;
-                color: white;
-                font-family: Arial;
+        <link rel="stylesheet" href="stylesheet.css">
+        <script>
+            class Post {
+                constructor(title, description, date, link, highlighted, button) {
+                    this.title = title;
+                    this.description = description;
+                    this.date = date;
+                    this.link = link;
+                    this.highlighted = highlighted;
+                    this.button = button;
+                }
             }
 
-            img {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
+            class Button {
+                constructor(text, color, hoverColor) {
+                    this.text = text;
+                    this.color = color;
+                }
             }
 
-            span {
-                display: block;
-                text-align: center;
-                margin-bottom: 8px;
-            }
+            var buttons = {};
+            buttons['project'] = new Button("View project ↷", "blue");
+            buttons['youtube'] = new Button("Watch on YouTube ▶", "red");
 
-            h2 {
-                text-align: center;
-            }
-        </style>
+            var posts = {};
+            // posts['ID'] = new Post("TITLE", "DESCRIPTION", "DATE", "LINK", HIGHLIGHTED, buttons['BUTTONTYPE']);
+            posts['newsite'] = new Post("I updated my site :)", "Tadaa! I will post various updates, news and dev logs about my projects here. Including this! Keep in mind, this site is by no means to look amazing, and is just set up reeaally quickly.", "February 15, 2024", "#", false);
+            posts['wowretrolauncher'] = new Post("RELEASE: World of Warcraft Retro Launcher", "'World of Warcraft Retro Launcher' is a piece of software developed to emulate the look, feel and functionality of the old game launcher of World of Warcraft, retired in 2013.", "May 5, 2023", "https://parquelle.github.io/WoWRetroLauncher", true, buttons['project']);
+        </script>
     </head>
     <body>
-        <img src="https://raw.githubusercontent.com/Parquelle/parquelle/main/PQ.png">
-        <h2>Contact:</h2>
-        <span>E-mail: parquelle@gmail.com</span>
-        <span>Discord: @parquelle</span>
+        <img src="https://raw.githubusercontent.com/Parquelle/parquelle/main/PQ.png" class="logo"/>
+        
 
+        <div class="contact-box">
+            <h2>About</h2>
+            <span>I am a software developer and game designer.</span>
+            <br>
+            <h2>Contact</h2>
+            <span><b>E-mail:</b> parquelle@gmail.com</span>
+            <span><b>Discord:</b> @parquelle</span>
+            <span><b>GitHub:</b> Parquelle</span>
+        </div>
+
+        <script>
+            for (var post in posts) {
+                if(posts[post].highlighted) {
+                    document.write(`<div class="post" highlighted=true>`);
+                } else {
+                    document.write(`<div class="post">`);
+                }
+                document.write(`
+                    <img src="thumbnails/${post}.png" class="thumbnail"/>
+                    <h1 class="title">${posts[post].title}</h1>
+                    <span class="date">${posts[post].date}</span>
+                    <span class="desc">${posts[post].description}</span>
+                `)
+                if(posts[post].link != undefined && posts[post].button != undefined) {
+                    document.write(`<a href=${posts[post].link} color=${posts[post].button.color}>${posts[post].button.text}</a>`)
+                }
+                document.write(`</div>`)
+            }
+        </script>
     </body>
 </html>

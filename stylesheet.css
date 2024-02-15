@@ -1,0 +1,117 @@
+body {
+    background-color: #171717;
+    color: white;
+    font-family: Arial;
+}
+
+.logo {
+    display: block;
+    max-width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-box {
+    background-color: #121212;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.contact-box h2 {
+    margin-top: 8px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.contact-box span {
+    display: block;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.post {
+    background-color: #121212;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    position: relative;
+    height: 180px;
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+}
+
+.post[highlighted=true] {
+    background-color: rgb(44, 44, 22);;
+    border: 1px solid yellow;
+}
+
+.post .thumbnail {
+    position: absolute;
+    height: 172px;
+    margin: 4px;
+}
+
+.post .title {
+    display: block;
+    margin-left: 196px;
+    margin-right: 256px;
+    font-size: 24pt;
+    margin-top: 16px;
+}
+
+.post .desc {
+    display: block;
+    margin-left: 196px;
+    font-size: 12pt;
+    margin-right: 256px;
+}
+
+.post .date {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    color: lightgray;
+    font-size: 12pt;
+}
+
+.post a {
+    position: absolute;
+    font-size: 18pt;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px transparent solid;
+    text-decoration: none;
+    color: white;
+    transition: border 0.1s, background-color 0.1s;
+    text-shadow: 0px 0px 2px black;
+    bottom: 16px;
+    right: 16px;
+    background: white;
+}
+
+.post a:hover {
+    background: white;
+    border: 1px white solid;
+    text-shadow: 0px 0px 4px black;
+}
+
+.post a[color="blue"] {
+    background: rgb(9, 86, 228);
+}
+
+.post a[color="blue"]:hover {
+    background: rgb(41, 104, 221);
+}
+
+.post a[color="red"] {
+    background: rgb(228, 9, 9);
+}
+
+.post a[color="red"]:hover {
+    background: rgb(221, 41, 41);
+}
